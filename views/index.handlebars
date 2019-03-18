@@ -1,0 +1,24 @@
+<h1>Ready to be devoured</h1>
+<ul>
+  {{#each burger}}
+    {{#unless devoured}}
+    <p>
+      {{this.id}}
+      {{this.burger_name}}
+      </p>
+    {{/unless}}
+  {{/each}}
+</ul>
+<h1>Devoured</h1>
+<ul>
+  {{#each burger}}
+    {{#if devoured}}
+    <p>
+        {{this.id}}
+        {{this.burger_name}}
+    </p>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2 id='test'></h2>

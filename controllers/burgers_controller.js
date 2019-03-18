@@ -2,7 +2,7 @@ var express = require('express')
 
 var router = express.Router();
 
-var burger = require('../model/burger.js')
+var burger = require('../models/burger.js')
 
 
 router.get("/", function(req, res) {
@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
       var object = {
         burger: data
       };
-      console.log(object);
+      console.log('burgers_controller ' + object);
       res.render("index", object);
     });
   });
