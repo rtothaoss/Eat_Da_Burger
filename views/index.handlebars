@@ -1,5 +1,63 @@
-<h1>Ready to be devoured</h1>
+{{!-- <h1 style='text-align: center'>Eat Da Burger!</h1> --}}
 
+
+<div class='container'>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class='display-4' style='text-align: center;'>Eat Da Burger!</h1>
+      <div class='row'>
+        
+        <div class='col-lg-6' style='padding-left:10%'>
+          {{#each burger}}
+          {{#unless devoured}}
+          <p>
+            <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">{{id}}
+            {{burger_name}}</button>
+            {{!-- {{id}}
+            {{burger_name}} --}}
+            </p>
+          {{!-- <div class='text-right'> --}}
+            {{!-- <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">Devour</button> --}}
+        {{!-- </div> --}}
+
+          {{/unless}}
+          {{/each}}
+        </div>
+        <div class='col-lg-6' style='padding-left:10%'>
+          {{#each burger}}
+          {{#if devoured}}
+          <p>
+            {{id}}
+            {{burger_name}}
+          </p>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col'></div>
+        <div class='col'>
+          <h1 class='display-4 text-center'>Add A Burger!</h1>
+          {{!-- <h1>Add A Burger!</h1> --}}
+
+          <form class="add-burger">
+
+            <div class="form-group">
+              <label for="burger">Burger Name:</label>
+              <input type="text" id="burger" name="name">
+            </div>
+            <div class='text-center'>
+              <button type="submit">Add Burger</button>
+            </div>
+          </form>
+        </div>
+        <div class='col'></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{{!-- 
 {{#each burger}}
 {{#unless devoured}}
 <p>
@@ -7,12 +65,12 @@
   {{burger_name}}
   <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">Devour</button>
 </p>
-{{!-- {{> burger-block devoured=false}} --}}
+
 {{/unless}}
-{{/each}}
+{{/each}} --}}
 
 
-<h1>Devoured</h1>
+{{!-- <h1>Devoured</h1>
 
 {{#each burger}}
 {{#if devoured}}
@@ -21,9 +79,10 @@
   {{burger_name}}
 </p>
 {{/if}}
-{{/each}}
+{{/each}} --}}
 
-<h1>Add A Burger!</h1>
+
+{{!-- <h1>Add A Burger!</h1>
 
 <form class="add-burger">
 
@@ -33,7 +92,7 @@
   </div>
 
   <button type="submit">Add Burger</button>
-</form>
+</form> --}}
 
 {{!-- <script>
 
@@ -56,24 +115,24 @@
     );
   });
 
-    $(".add-burger").on("submit", function(event) {
-      event.preventDefault();
-  
-      var newBurger = {
-        burger_name: $("#burger").val().trim(),
-        devoured: 0
-      };
-  
-      $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-      }).then(
-        function() {
-          console.log("created new burger");
-          location.reload();
-        });
-    
-    });
+  $(".add-burger").on("submit", function (event) {
+    event.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#burger").val().trim(),
+      devoured: 0
+    };
+
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function () {
+        console.log("created new burger");
+        location.reload();
+      });
+
+  });
 
 
 </script> --}}

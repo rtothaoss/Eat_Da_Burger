@@ -36,4 +36,8 @@ $(".change-devour").on("click", function (event) {
         });
     
     });
+
+    // function hidden() {
+    //   if()
+    // }
 });
