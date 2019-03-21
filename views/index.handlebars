@@ -1,34 +1,30 @@
-{{!-- <h1 style='text-align: center'>Eat Da Burger!</h1> --}}
-
-
 <div class='container'>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
+      <div class='text-center'>
+      <img style='max-width: 10%; height: auto;' src='./assets/img/burger.jpg'>
+      </div>
       <h1 class='display-4' style='text-align: center;'>Eat Da Burger!</h1>
+      <hr class="my-4" style='margin-bottom: 5%'>
       <div class='row'>
-        
-        <div class='col-lg-6' style='padding-left:10%'>
+        <div class='col-lg-6' style='padding-left: 20%;'>
           {{#each burger}}
           {{#unless devoured}}
           <p>
-            <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">{{id}}
+            <button type='button' class="change-devour btn btn-primary btn-lg" data-id="{{id}}" data-newdevoured="{{devoured}}">{{id}}
             {{burger_name}}</button>
-            {{!-- {{id}}
-            {{burger_name}} --}}
+          
             </p>
-          {{!-- <div class='text-right'> --}}
-            {{!-- <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">Devour</button> --}}
-        {{!-- </div> --}}
-
+         
           {{/unless}}
           {{/each}}
         </div>
-        <div class='col-lg-6' style='padding-left:10%'>
+        <div class='col-lg-6' style='padding-left:20%'>
           {{#each burger}}
           {{#if devoured}}
           <p>
-            {{id}}
-            {{burger_name}}
+            
+            <button type="button" class="btn btn-secondary btn-lg" style='text-decoration: line-through'>{{id}} {{burger_name}}</button>
           </p>
           {{/if}}
           {{/each}}
@@ -37,15 +33,16 @@
       <div class='row'>
         <div class='col'></div>
         <div class='col'>
-          <h1 class='display-4 text-center'>Add A Burger!</h1>
-          {{!-- <h1>Add A Burger!</h1> --}}
+          <h1 class='text-center'>Add A Burger!</h3>
+
 
           <form class="add-burger">
 
-            <div class="form-group">
+            <div class="form-group text-center" style='margin: 0 auto;'>
               <label for="burger">Burger Name:</label>
               <input type="text" id="burger" name="name">
             </div>
+            <p class='text-center' style='font-size: 14px'>Add a burger then <i>click</i> on it to eat it</p>
             <div class='text-center'>
               <button type="submit">Add Burger</button>
             </div>
@@ -57,82 +54,3 @@
   </div>
 </div>
 </div>
-{{!-- 
-{{#each burger}}
-{{#unless devoured}}
-<p>
-  {{id}}
-  {{burger_name}}
-  <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">Devour</button>
-</p>
-
-{{/unless}}
-{{/each}} --}}
-
-
-{{!-- <h1>Devoured</h1>
-
-{{#each burger}}
-{{#if devoured}}
-<p>
-  {{id}}
-  {{burger_name}}
-</p>
-{{/if}}
-{{/each}} --}}
-
-
-{{!-- <h1>Add A Burger!</h1>
-
-<form class="add-burger">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="name">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form> --}}
-
-{{!-- <script>
-
-  $(".change-devour").on("click", function (event) {
-    var id = $(this).data("id");
-    var newdevoured = 1;
-
-    var newDevouredState = {
-      devoured: newdevoured
-    };
-
-    $.ajax("/api/burgers/" + id, {
-      type: "PUT",
-      data: newDevouredState
-    }).then(
-      function () {
-        console.log("changed devoured to", newdevoured);
-        location.reload();
-      }
-    );
-  });
-
-  $(".add-burger").on("submit", function (event) {
-    event.preventDefault();
-
-    var newBurger = {
-      burger_name: $("#burger").val().trim(),
-      devoured: 0
-    };
-
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function () {
-        console.log("created new burger");
-        location.reload();
-      });
-
-  });
-
-
-</script> --}}

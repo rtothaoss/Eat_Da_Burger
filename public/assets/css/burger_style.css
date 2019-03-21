@@ -1,0 +1,12 @@
+body {
+    background-image: url(https://i.etsystatic.com/11170223/r/il/f22eaa/1014657230/il_570xN.1014657230_6pri.jpg);
+    background-repeat: repeat;
+}
+
+.jumbotron {
+    background-color: white;
+}
+
+* {
+    font-family: 'Heebo', sans-serif;
+}
